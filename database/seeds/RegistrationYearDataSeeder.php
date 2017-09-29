@@ -1,0 +1,104 @@
+<?php
+
+use Illuminate\Database\Seeder;
+
+class RegistrationYearDataSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        DB::table('registrationyears')->insert(['year'=>1900]);
+DB::table('registrationyears')->insert(['year'=>1931]);
+DB::table('registrationyears')->insert(['year'=>1932]);
+DB::table('registrationyears')->insert(['year'=>1933]);
+DB::table('registrationyears')->insert(['year'=>1934]);
+DB::table('registrationyears')->insert(['year'=>1935]);
+DB::table('registrationyears')->insert(['year'=>1936]);
+DB::table('registrationyears')->insert(['year'=>1937]);
+DB::table('registrationyears')->insert(['year'=>1938]);
+DB::table('registrationyears')->insert(['year'=>1939]);
+DB::table('registrationyears')->insert(['year'=>1940]);
+DB::table('registrationyears')->insert(['year'=>1941]);
+DB::table('registrationyears')->insert(['year'=>1942]);
+DB::table('registrationyears')->insert(['year'=>1943]);
+DB::table('registrationyears')->insert(['year'=>1944]);
+DB::table('registrationyears')->insert(['year'=>1945]);
+DB::table('registrationyears')->insert(['year'=>1946]);
+DB::table('registrationyears')->insert(['year'=>1947]);
+DB::table('registrationyears')->insert(['year'=>1948]);
+DB::table('registrationyears')->insert(['year'=>1949]);
+DB::table('registrationyears')->insert(['year'=>1950]);
+DB::table('registrationyears')->insert(['year'=>1951]);
+DB::table('registrationyears')->insert(['year'=>1952]);
+DB::table('registrationyears')->insert(['year'=>1953]);
+DB::table('registrationyears')->insert(['year'=>1954]);
+DB::table('registrationyears')->insert(['year'=>1955]);
+DB::table('registrationyears')->insert(['year'=>1956]);
+DB::table('registrationyears')->insert(['year'=>1957]);
+DB::table('registrationyears')->insert(['year'=>1958]);
+DB::table('registrationyears')->insert(['year'=>1959]);
+DB::table('registrationyears')->insert(['year'=>1960]);
+DB::table('registrationyears')->insert(['year'=>1961]);
+DB::table('registrationyears')->insert(['year'=>1962]);
+DB::table('registrationyears')->insert(['year'=>1963]);
+DB::table('registrationyears')->insert(['year'=>1964]);
+DB::table('registrationyears')->insert(['year'=>1965]);
+DB::table('registrationyears')->insert(['year'=>1966]);
+DB::table('registrationyears')->insert(['year'=>1967]);
+DB::table('registrationyears')->insert(['year'=>1968]);
+DB::table('registrationyears')->insert(['year'=>1969]);
+DB::table('registrationyears')->insert(['year'=>1970]);
+DB::table('registrationyears')->insert(['year'=>1971]);
+DB::table('registrationyears')->insert(['year'=>1972]);
+DB::table('registrationyears')->insert(['year'=>1973]);
+DB::table('registrationyears')->insert(['year'=>1974]);
+DB::table('registrationyears')->insert(['year'=>1975]);
+DB::table('registrationyears')->insert(['year'=>1976]);
+DB::table('registrationyears')->insert(['year'=>1977]);
+DB::table('registrationyears')->insert(['year'=>1978]);
+DB::table('registrationyears')->insert(['year'=>1979]);
+DB::table('registrationyears')->insert(['year'=>1980]);
+DB::table('registrationyears')->insert(['year'=>1981]);
+DB::table('registrationyears')->insert(['year'=>1982]);
+DB::table('registrationyears')->insert(['year'=>1983]);
+DB::table('registrationyears')->insert(['year'=>1984]);
+DB::table('registrationyears')->insert(['year'=>1985]);
+DB::table('registrationyears')->insert(['year'=>1986]);
+DB::table('registrationyears')->insert(['year'=>1987]);
+DB::table('registrationyears')->insert(['year'=>1988]);
+DB::table('registrationyears')->insert(['year'=>1989]);
+DB::table('registrationyears')->insert(['year'=>1990]);
+DB::table('registrationyears')->insert(['year'=>1991]);
+DB::table('registrationyears')->insert(['year'=>1992]);
+DB::table('registrationyears')->insert(['year'=>1993]);
+DB::table('registrationyears')->insert(['year'=>1994]);
+DB::table('registrationyears')->insert(['year'=>1995]);
+DB::table('registrationyears')->insert(['year'=>1996]);
+DB::table('registrationyears')->insert(['year'=>1997]);
+DB::table('registrationyears')->insert(['year'=>1998]);
+DB::table('registrationyears')->insert(['year'=>1999]);
+DB::table('registrationyears')->insert(['year'=>2000]);
+DB::table('registrationyears')->insert(['year'=>2001]);
+DB::table('registrationyears')->insert(['year'=>2002]);
+DB::table('registrationyears')->insert(['year'=>2003]);
+DB::table('registrationyears')->insert(['year'=>2004]);
+DB::table('registrationyears')->insert(['year'=>2005]);
+DB::table('registrationyears')->insert(['year'=>2006]);
+DB::table('registrationyears')->insert(['year'=>2007]);
+DB::table('registrationyears')->insert(['year'=>2008]);
+DB::table('registrationyears')->insert(['year'=>2009]);
+DB::table('registrationyears')->insert(['year'=>2010]);
+DB::table('registrationyears')->insert(['year'=>2011]);
+DB::table('registrationyears')->insert(['year'=>2012]);
+DB::table('registrationyears')->insert(['year'=>2013]);
+DB::table('registrationyears')->insert(['year'=>2014]);
+DB::table('registrationyears')->insert(['year'=>2015]);
+DB::table('registrationyears')->insert(['year'=>2016]);
+DB::table('registrationyears')->insert(['year'=>2017]);
+
+    }
+}
