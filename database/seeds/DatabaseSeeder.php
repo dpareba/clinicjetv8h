@@ -147,7 +147,7 @@ class DatabaseSeeder extends Seeder
         DB::table('specialities')->insert(['speciality'=>'PUBLIC HEALTH']);
         DB::table('specialities')->insert(['speciality'=>'PULMONARY/RESPIRATORY DISEASES']);
         DB::table('specialities')->insert(['speciality'=>'RADIOLOGY']);
-        DB::table('specialities')->insert(['speciality'=>'RECEPTIONIST']);
+        //DB::table('specialities')->insert(['speciality'=>'RECEPTIONIST']);
         DB::table('specialities')->insert(['speciality'=>'RESEARCH']);
         DB::table('specialities')->insert(['speciality'=>'RHEUMATOLOGY']);
         DB::table('specialities')->insert(['speciality'=>'SEXUAL & REPRODUCTIVE HEALTH']);

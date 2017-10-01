@@ -27,6 +27,7 @@ class ClinicController extends Controller
 
     public function check()
     {
+      
         $jobtype = Auth::user()->jobtype->jobtype;
         if (Auth::user()->clinics()->first() == null)
          {
