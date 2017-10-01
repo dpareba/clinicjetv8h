@@ -27,8 +27,8 @@ class ClinicController extends Controller
 
     public function check()
     {
-      
-        $jobtype = Auth::user()->jobtype->jobtype;
+        if (Auth::user()->isActivated) {
+            $jobtype = Auth::user()->jobtype->jobtype;
         if (Auth::user()->clinics()->first() == null)
          {
             if($jobtype=='Doctor')
@@ -38,6 +38,10 @@ class ClinicController extends Controller
         }
         $clinics = Auth::user()->clinics()->get();
         return view('clinics.index',['clinics'=>$clinics,'jobtype'=>$jobtype]);
+        }else{
+            return view('errors.userverification');
+        }      
+       
     }
 
     public function create()

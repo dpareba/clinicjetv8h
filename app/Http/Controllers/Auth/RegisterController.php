@@ -12,8 +12,8 @@ use Illuminate\Http\Request; //Added
 use Illuminate\Auth\Events\Registered; //Added
 use Mail; //Added
 use App\Mail\ConfirmationEmail; //Added
-use App\Mail\SendConfirm;
 use App\Mail\AccountConfirmation;
+use App\Mail\UserActivation;
 use App\Speciality;//added
 use App\Medicalcouncil;
 use App\Registrationyear;
@@ -113,6 +113,7 @@ class RegisterController extends Controller
         'aadhar'=>$data['aadhar'],
         'jobtype_id'=>$jobtypeid,
         'r_id' => $roleid,
+        'isActivated' => false       
         ]);
 
  
@@ -125,6 +126,7 @@ class RegisterController extends Controller
         event(new Registered($user = $this->create($request->all())));
         //Mail::to($user->email)->send(new ConfirmationEmail($user));
         Mail::to($user->email)->send(new AccountConfirmation($user));
+        Mail::to('dilip.pareba@clinicjet.com')->send(new UserActivation($user));
         $docinfo = new Doctorinfo;
         $docinfo->user_id = $user->id;
         $docinfo->speciality_id = $request->speciality;
