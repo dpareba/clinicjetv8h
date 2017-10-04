@@ -39,7 +39,7 @@
                         <div class="form-group{{ $errors->has('speciality') ? ' has-error' : '' }}">
                             <label for="speciality" class="col-md-4 control-label">Select Specialty</label>
                             <div class="col-md-6">
-                                <select required="" data-parsley-required-message="*Kindly Select a Specialty" name="speciality" id="speciality" class="js-example-basic-single form-control">
+                                <select required="" data-parsley-required-message="*Kindly Select a Specialty" name="speciality" id="speciality" class="js-example-basic-single form-control"> 
                                         @if (old('speciality') == '')
                                             @foreach ($specialities as $speciality)
                                             <option value="{{$speciality->id}}" {{$speciality->speciality == 'GENERAL MEDICINE' ? 'selected="selected"' : ''}}>{{$speciality->speciality}}</option>

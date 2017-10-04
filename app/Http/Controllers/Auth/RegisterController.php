@@ -129,8 +129,6 @@ class RegisterController extends Controller
         $this->validator($request->all())->validate();
     try{
         event(new Registered($user = $this->create($request->all())));
-            //Mail::to($user->email)->send(new ConfirmationEmail($user));
-            
             $docinfo = new Doctorinfo;
             $docinfo->user_id = $user->id;
             $docinfo->speciality_id = $request->speciality;

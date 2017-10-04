@@ -10,9 +10,10 @@
                 <div class="panel-heading">Doctor Login</div>
                 <div class="panel-body">
                     @include('partials.flash', ['some' => 'data'])
+                    
                     <form data-parsley-validate class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
-
+                        
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
@@ -31,8 +32,8 @@
                             <label for="password" class="col-md-4 control-label">Password</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required data-parsley-required-message="*Please enter your password!" placeholder="Enter Password">
-
+                                <input id="password" type="password"  class="form-control" name="password" required data-parsley-required-message="*Please enter your password!" placeholder="Enter Password" >
+                                
                                 @if ($errors->has('password'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>
