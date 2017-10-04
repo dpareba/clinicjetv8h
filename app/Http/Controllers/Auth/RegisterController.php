@@ -21,6 +21,7 @@ use App\Jobtype;
 use App\Doctorinfo;
 use App\Role;
 use Input;
+use DB;
 
 class RegisterController extends Controller
 {
@@ -122,18 +123,46 @@ class RegisterController extends Controller
     public function register(Request $request)
     {
         //dd($request);
+        
+        DB::beginTransaction();
+ 
         $this->validator($request->all())->validate();
+    try{
         event(new Registered($user = $this->create($request->all())));
-        //Mail::to($user->email)->send(new ConfirmationEmail($user));
-        Mail::to($user->email)->send(new AccountConfirmation($user));
-        Mail::to('dilip.pareba@clinicjet.com')->send(new UserActivation($user));
-        $docinfo = new Doctorinfo;
-        $docinfo->user_id = $user->id;
-        $docinfo->speciality_id = $request->speciality;
-        $docinfo->medicalcouncil_id = $request->medicalcouncil;
-        $docinfo->registrationyear_id = $request->registrationyear;
-        $docinfo->registrationnumber = Str::upper($request->registrationnumber);
-        $docinfo->save();
+            //Mail::to($user->email)->send(new ConfirmationEmail($user));
+            
+            $docinfo = new Doctorinfo;
+            $docinfo->user_id = $user->id;
+            $docinfo->speciality_id = $request->speciality;
+            $docinfo->medicalcouncil_id = $request->medicalcouncil;
+            $docinfo->registrationyear_id = $request->registrationyear;
+            $docinfo->registrationnumber = Str::upper($request->registrationnumber);
+            $docinfo->save();
+            try {
+
+                Mail::to($user->email)->send(new AccountConfirmation($user));
+                
+            } catch (\Exception $e) {
+
+                return $e->getMessage();
+                
+            }
+            try {
+
+                Mail::to('dilip.pareba@clinicjet.com')->send(new UserActivation($user));
+                
+            } catch (\Exception $e) {
+                
+                return $e->getMessage();
+            }
+
+        }
+        catch (\Exception $e){
+
+            return $e->getMessage();
+        }    
+        DB::commit();
+        
 
         return redirect()->route('login')->withStatus('Please click on the activatation link we have sent to your e-mail id inorder to activate your account.');
     }

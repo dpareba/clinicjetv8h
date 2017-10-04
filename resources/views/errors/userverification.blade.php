@@ -40,7 +40,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Account is pending activation OR is deactivated.Please contact Administrator.</div>
+                <div class="title"><b>Account is pending activation <u>OR</u> Account is deactivated.<br>Please contact Administrator.</b></div>
                 <br>
                 <a href="#" onclick="event.preventDefault(); document.getElementById('logoutform').submit();" >Back to Home</a>
 

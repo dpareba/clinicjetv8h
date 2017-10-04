@@ -190,6 +190,18 @@ Route::get('repeatvisit',[
 	]);
 
 
+Route::get('useractivation/{token}',[
+	'as'=>'useractivation',
+	'uses'=>'ActivationController@activateuser'
+]);
+
+Route::get('useractivationstatus',function(){
+	return view('errors.userverification');
+});
+
+
+
+
 
 
 

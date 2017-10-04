@@ -31,6 +31,6 @@ class AccountConfirmation extends Mailable
      */
     public function build()
     {
-        return $this->markdown('accountConfirmation');
+        return $this->markdown('emails.accountConfirmation');
     }
 }

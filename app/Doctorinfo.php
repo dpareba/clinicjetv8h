@@ -10,7 +10,7 @@ class Doctorinfo extends Model
         'speciality_id','medicalcouncil_id','registrationyear_id','registrationnumber'
     ];
 
-    public function users(){
+    public function user(){
     	return $this->belongsTo('App\User');
     }
     public function speciality(){

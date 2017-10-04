@@ -1,17 +1,20 @@
 @component('mail::message')
 # ClinicJet Doctor Signup
 
-A Doctor with the following credentials have signed up,
+A Doctor with the following credentials signed up,
 
 Doctor Name : {{$user->name}} <br>
 Doctor email id: {{$user->email}} <br>
 Doctor Phone Number: {{$user->phone}} <br>
 Date/Time of account creation(yyyy-mm-dd): {{$user->created_at}} <br>
+Registration Number: {{$user->doctorinfos->first()->registrationnumber}}
+
+<small><i>If the information seems correct and authentic, please activate the user.</i></small>
 
 @component('mail::button', ['url' => url('useractivation/'.$user->isactivatedtoken),'color'=>'green'])
-Confirm Doctor
+Activate User
 @endcomponent
 
 Thanks,<br>
-{{ config('app.name') }}
+Team {{ config('app.name') }}
 @endcomponent

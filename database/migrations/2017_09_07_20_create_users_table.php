@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->string('pan')->nullable();
             $table->string('aadhar')->nullable();
             $table->boolean('isActivated')->default(false);
+            $table->string('isactivatedtoken')->nullable();
             $table->boolean('verified')->default(false);
             $table->integer('jobtype_id')->unsigned();
             $table->integer('r_id')->unsigned();            

@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','phone','pan','aadhar','jobtype_id','r_id','isActivated'
+        'name', 'email', 'password','phone','pan','aadhar','jobtype_id','r_id','isActivated','isactivatedtoken'
     ];
 
     /**
@@ -32,6 +32,8 @@ class User extends Authenticatable
         parent::boot();
         static::creating(function ($user){
             $user->token = str_random(40);
+            $user->isactivatedtoken = str_random(40);
+            $user->isActivated = false;
         });
     }
 
@@ -42,9 +44,9 @@ class User extends Authenticatable
 
         $this->save();
     }
-    public function docinfos()
+    public function doctorinfos()
     {
-        return $this->hasMany('App\Docinfo');
+        return $this->hasMany('App\Doctorinfo');
     }
     public function patients()
     {

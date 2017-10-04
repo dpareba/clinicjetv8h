@@ -22,37 +22,53 @@ class ClinicController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware(['auth','userverified']);
     }
+
+    //  public function useractivated(){
+    //     if (Auth::user()->isActivated) {
+    //         return true;
+    //     }else{
+    //         return false;
+    //     }
+    // }
 
     public function check()
     {
-        if (Auth::user()->isActivated) {
+        //if ($this->useractivated()) {
             $jobtype = Auth::user()->jobtype->jobtype;
-        if (Auth::user()->clinics()->first() == null)
-         {
-            if($jobtype=='Doctor')
-            {
-                return view('clinics.newuser');
+            if (Auth::user()->clinics()->first() == null)
+             {
+                if($jobtype=='Doctor')
+                {
+                    return view('clinics.newuser');
+                }
             }
-        }
-        $clinics = Auth::user()->clinics()->get();
-        return view('clinics.index',['clinics'=>$clinics,'jobtype'=>$jobtype]);
-        }else{
-            return view('errors.userverification');
-        }      
+                $clinics = Auth::user()->clinics()->get();
+                return view('clinics.index',['clinics'=>$clinics,'jobtype'=>$jobtype]);
+        // }else{
+        //     return view('errors.userverification');
+        // }      
        
     }
 
     public function create()
     {
-        $states = State::all();
-        return view('clinics.create',['states'=>$states]);
+        //if ($this->useractivated()) {
+             $states = State::all();
+            return view('clinics.create',['states'=>$states]);
+        //}else{
+            //return view('errors.userverification');
+        //}
+       
     }
+
+   
 
     public function store(Request $request)
     {
-        $this->validate($request,[
+        ///if ($this->useractivated()) {
+                    $this->validate($request,[
             'name'=>'required|max:255|unique:clinics,name',
             'clinictype'=>'required|max:255',
             'address'=>'required|unique:clinics,address',
@@ -81,29 +97,33 @@ class ClinicController extends Controller
             'email.unique'=>'A Clinic with this email is already Registered'
             ]);
 
-        $user = User::find(Auth::user()->id);
-        $clinic = new Clinic;
-        $clinic->name = Str::upper($request->name);
-        $clinic->address = Str::upper($request->address);
-        $clinic->clinictype = Str::upper($request->clinictype);
-        $clinic->state = Str::upper($request->state);
-        $clinic->city = Str::upper($request->city);
-        $clinic->pin = $request->pin;
-        $clinic->phoneprimary = $request->phoneprimary;
-        $clinic->phoneprimarylandarea = $request->phoneprimarylandarea;
-        $clinic->phoneprimarylandtel = $request->phoneprimarylandtel;
-        $clinic->phonealternate = $request->phonealternate;
-        $clinic->email = $request->email;
-        $clinic->website = $request->website;
-        $clinic->cliniccode = rand(1000,9999);
-        $clinic->save();
-        $roleid = Role::where('role','SuperAdmin')->first();
-        $user->roles()->attach($roleid->id,['clinic_id'=>$clinic->id,'role_id'=>$roleid->id]);
-        Session::flash('message','Success!!');
-        Session::flash('text','New Clinic Registered successfully!!');
-        Session::flash('type','success');
+            $user = User::find(Auth::user()->id);
+            $clinic = new Clinic;
+            $clinic->name = Str::upper($request->name);
+            $clinic->address = Str::upper($request->address);
+            $clinic->clinictype = Str::upper($request->clinictype);
+            $clinic->state = Str::upper($request->state);
+            $clinic->city = Str::upper($request->city);
+            $clinic->pin = $request->pin;
+            $clinic->phoneprimary = $request->phoneprimary;
+            $clinic->phoneprimarylandarea = $request->phoneprimarylandarea;
+            $clinic->phoneprimarylandtel = $request->phoneprimarylandtel;
+            $clinic->phonealternate = $request->phonealternate;
+            $clinic->email = $request->email;
+            $clinic->website = $request->website;
+            $clinic->cliniccode = rand(1000,9999);
+            $clinic->save();
+            $roleid = Role::where('role','SuperAdmin')->first();
+            $user->roles()->attach($roleid->id,['clinic_id'=>$clinic->id,'role_id'=>$roleid->id]);
+            Session::flash('message','Success!!');
+            Session::flash('text','New Clinic Registered successfully!!');
+            Session::flash('type','success');
 
-        return redirect()->route('check');
+            return redirect()->route('check');
+        // }else{
+        //     return view('errors.userverification');
+        // }
+
     }
 
     public function show($id)

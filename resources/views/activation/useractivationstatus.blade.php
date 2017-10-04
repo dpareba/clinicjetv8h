@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>EMAIL Verified</title>
+        <title>Doctor Account Activation</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
@@ -40,8 +40,8 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title"><b>Email has already been verified <u>OR</u> this link is no longer valid.</b></div>
-            </div>
+                <div class="title"><b>{{$message}}</b></div>
+               </div>
         </div>
     </body>
 </html>

@@ -31,6 +31,6 @@ class UserActivation extends Mailable
      */
     public function build()
     {
-        return $this->markdown('userActivation');
+        return $this->markdown('emails.userActivation');
     }
 }
