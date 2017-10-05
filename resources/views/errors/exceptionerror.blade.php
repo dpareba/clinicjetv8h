@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Account Inactive</title>
+        <title>Exception | Error</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
@@ -40,8 +40,8 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title"><b>Account is pending activation.<br>Please try after sometime.Thank you for your patience.</b><br><br><small><b><i>(It normally takes 15-30 minutes to activate account.Not activated still? <br>Please connect with ClinicJet Support)</i></small></b></div>
-                <br>
+                <div class="title"><b>{{$errormessage}}</b></div> <br>
+                <div style="color:red;"><b><i>{{$excepterr}}</i></b></div><br><br>
                 <a href="#" onclick="event.preventDefault(); document.getElementById('logoutform').submit();" >Back to Home</a>
 
                 <form id="logoutform" action="{{ url('/logout') }}" method="POST" style="display: none;">

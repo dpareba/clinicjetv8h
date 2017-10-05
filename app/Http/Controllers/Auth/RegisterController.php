@@ -142,8 +142,8 @@ class RegisterController extends Controller
                 
             } catch (\Exception $e) {
 
-                return $e->getMessage();
-                
+                //return $e->getMessage();
+                return view('errors.exceptionerror')->withExcepterr($e->getMessage())->withErrormessage('Account Activation/Email Verification mail sending failed.Registration could not be completed at this time.Please try again.');
             }
             try {
 
@@ -151,13 +151,15 @@ class RegisterController extends Controller
                 
             } catch (\Exception $e) {
                 
-                return $e->getMessage();
+                //return $e->getMessage();
+                return view('errors.exceptionerror')->withExcepterr($e->getMessage())->withErrormessage('Account Activation/Email Verification mail sending failed.Registration could not be completed at this time.Please try again.');
             }
 
         }
         catch (\Exception $e){
 
-            return $e->getMessage();
+            //return $e->getMessage();
+            return view('errors.exceptionerror')->withExcepterr($e->getMessage())->withErrormessage('Account Activation/Email Verification mail sending failed.Registration could not be completed at this time.Please try again.');
         }    
         DB::commit();
         
